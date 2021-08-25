@@ -1,9 +1,11 @@
 package com.fitness.tracker;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Appointment {
 
 	@Id
@@ -24,7 +26,7 @@ public class Appointment {
 	
 	private String physio;
 	
-	private Integer pack;
+	private String pack;
 	
 	private Integer amount;
 
@@ -92,11 +94,12 @@ public class Appointment {
 		this.physio = physio;
 	}
 
-	public Integer getPack() {
+
+	public String getPack() {
 		return pack;
 	}
 
-	public void setPack(Integer pack) {
+	public void setPack(String pack) {
 		this.pack = pack;
 	}
 
@@ -107,7 +110,4 @@ public class Appointment {
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
-	
-	
-	
 }
