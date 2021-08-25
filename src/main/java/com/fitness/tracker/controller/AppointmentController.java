@@ -1,4 +1,4 @@
-package com.fitness.tracker;
+package com.fitness.tracker.controller;
 
 import java.util.Optional;
 
@@ -19,8 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.util.StringUtils;
 
+import com.fitness.tracker.Appointment;
 import com.fitness.tracker.exceptions.UserIdNotFoundException;
 import com.fitness.tracker.exceptions.UserNameNotFoundException;
+import com.fitness.tracker.repository.IAppointmentRepository;
+import com.fitness.tracker.service.AppointmentService;
 
 @RestController
 @RequestMapping("/app")

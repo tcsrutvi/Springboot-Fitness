@@ -1,6 +1,8 @@
-package com.fitness.tracker;
+package com.fitness.tracker.service;
 
 import java.util.Optional;
+
+import com.fitness.tracker.Appointment;
 
 public interface IAppointmentService {
 

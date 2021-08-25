@@ -1,7 +1,10 @@
-package com.fitness.tracker;
+package com.fitness.tracker.service;
 
 import java.util.Optional;
 import org.springframework.util.StringUtils;
+
+import com.fitness.tracker.Appointment;
+import com.fitness.tracker.repository.IAppointmentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
