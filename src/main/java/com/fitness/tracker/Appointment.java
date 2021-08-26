@@ -4,110 +4,53 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 public class Appointment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer srno;
-	
+
+	@NotBlank
+	@Size(min=4, max=20)
 	private String name;
-	
+
+	@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}")
 	private Integer phone;
-	
+
+	@Email
 	private String email;
-	
+
+	@Min(18)
 	private Integer age;
 	
+	@NotBlank
 	private String address;
 	
+	@NotNull
 	private String trainer_preference;
-	
+
+	@NotNull
 	private String physio;
-	
+
+	@NotNull
+	@Min(300)
 	private String pack;
-	
+
+	@NotBlank
+	@Size(min=3)
 	private Integer amount;
 
-	public Integer getSrno() {
-		return srno;
-	}
-
-	public void setSrno(Integer srno) {
-		this.srno = srno;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Integer getPhone() {
-		return phone;
-	}
-
-	public void setPhone(Integer phone) {
-		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Integer getAge() {
-		return age;
-	}
-
-	public void setAge(Integer age) {
-		this.age = age;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getTrainer_preference() {
-		return trainer_preference;
-	}
-
-	public void setTrainer_preference(String trainer_preference) {
-		this.trainer_preference = trainer_preference;
-	}
-
-	public String getPhysio() {
-		return physio;
-	}
-
-	public void setPhysio(String physio) {
-		this.physio = physio;
-	}
-
-
-	public String getPack() {
-		return pack;
-	}
-
-	public void setPack(String pack) {
-		this.pack = pack;
-	}
-
-	public Integer getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Integer amount) {
-		this.amount = amount;
-	}
 }

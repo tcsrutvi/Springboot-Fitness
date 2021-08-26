@@ -8,6 +8,7 @@ import com.fitness.tracker.repository.IAppointmentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service 
 public class AppointmentService implements IAppointmentService{
@@ -16,6 +17,7 @@ public class AppointmentService implements IAppointmentService{
 	IAppointmentRepository appointmentRepository;
 
 	@Override
+	@Transactional
 	public void save(Appointment appointment) {
 		appointmentRepository.save(appointment);
 		System.out.println("saved");
@@ -37,6 +39,7 @@ public class AppointmentService implements IAppointmentService{
 	}
 
 	@Override
+	@Transactional
 	public void update(Appointment appointment, Integer id) {
 		Optional<Appointment> appointmentFromDB = appointmentRepository.findById(id);
 		Appointment appointment1 = appointmentFromDB.get();

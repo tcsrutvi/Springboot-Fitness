@@ -2,6 +2,8 @@ package com.fitness.tracker.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,7 @@ import com.fitness.tracker.repository.IAppointmentRepository;
 import com.fitness.tracker.service.AppointmentService;
 
 @RestController
-@RequestMapping("/app")
+@RequestMapping("/appointment")
 public class AppointmentController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AppointmentController.class);
@@ -36,29 +38,29 @@ public class AppointmentController {
 	@Autowired
 	AppointmentService appointmentService;
 
-	@GetMapping("/appointment")
+	@GetMapping()
 	private Iterable<Appointment> getAppointment() {
 		return appointmentService.getAllUsers();
 	}
 
-	@GetMapping("/appointment/{id}")
+	@GetMapping("/{id}")
 	private Optional<Appointment> getAppointment(@PathVariable("id") Integer id) {
 		return appointmentService.getUser(id);
 	}
 
-	@PostMapping("/appointment")
+	@PostMapping()
 	private void saveAppointment(@RequestBody Appointment appointment) {
 
 		appointmentService.save(appointment);
 		System.out.println(appointment.getName());
 	}
 
-	@DeleteMapping("/appointment/{id}")
+	@DeleteMapping("/{id}")
 	private void deleteAppointment(@PathVariable("id") Integer id) {
 		appointmentService.delete(id);
 	}
 
-	@PutMapping("/appointment/{id}")
+	@PutMapping("/{id}")
 	public void updateAppointment(@PathVariable("id") Integer id, @RequestBody Appointment app) {
 		Appointment appFromDb = repo.findById(id).get();
 		if (StringUtils.hasText(app.getTrainer_preference())) {
